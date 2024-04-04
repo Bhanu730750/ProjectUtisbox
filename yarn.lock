@@ -6210,7 +6210,7 @@
   dependencies:
     "use-latest-callback" "^0.1.5"
 
-"react-native-vector-icons@^10.0.0":
+"react-native-vector-icons@^10.0.3":
   "integrity" "sha512-ZgVlV5AdQgnPHHvBEihGf2xwyziT1acpXV1U+WfCgCv3lcEeCRsmwAsBU+kUSNsU+8TcWVsX04kdI6qUaS8D7w=="
   "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-10.0.3.tgz"
   "version" "10.0.3"
