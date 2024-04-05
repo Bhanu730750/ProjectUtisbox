@@ -13,18 +13,66 @@ import {Themes} from '../Appdata/colors';
 import {SignUpButton} from '../Componets/Button';
 import {NAVIGATION_NAME} from '../Appdata/NavigationName';
 import Entypo from 'react-native-vector-icons/Entypo';
+import {Dropdown} from 'react-native-element-dropdown';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 export default function Login({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const data = [
+    {label: 'Chetu@.com', value: 'Chetu@.com'},
+    {label: 'Dva@.com', value: 'Dva@.com'},
+    {label: 'MPS@.com', value: 'MPS@.com'},
+    {label: 'DPS@.com', value: 'DPS@.com'},
+    {label: 'Amity@.com', value: 'Amity@.com'},
+    {label: 'IIT Kanpur@.com	', value: 'IIT Kanpur@.com'},
+  ];
+  const [value, setValue] = useState(null);
+  const [isFocus, setIsFocus] = useState(false);
+
+  const renderLabel = () => {
+    if (value || isFocus) {
+      return (
+        <Text style={[styles.label, isFocus && {color: 'blue'}]}>
+          Select Institute
+        </Text>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       <ImageBackground
         source={require('../Assets/Images/bgimg.jpg')}
         style={styles.container}>
-        <Text style={styles.img}></Text>
-        <Text style={styles.title}>Login in!</Text>
+        <Text style={styles.title}>Utisbox</Text>
         <Text style={styles.subtitle}>Happy to see you again!</Text>
+        <Text style={styles.img}></Text>
+        <View style={styles.dropdown}>
+          {renderLabel()}
+          <Dropdown
+            style={[isFocus && {borderColor: 'blue'}]}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles.inputSearchStyle}
+            iconStyle={styles.iconStyle}
+            data={data}
+            search
+            maxHeight={300}
+            labelField="label"
+            valueField="value"
+            placeholder={!isFocus ? 'Select' : '...'}
+            searchPlaceholder="Search..."
+            value={value}
+            onFocus={() => setIsFocus(true)}
+            onBlur={() => setIsFocus(false)}
+            onChange={item => {
+              setValue(item.value);
+              setIsFocus(false);
+            }}
+          />
+        </View>
         <View style={styles.formView}>
           <View style={styles.formSubView}>
             <Text style={styles.label}>Email:</Text>
@@ -86,20 +134,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  dropdown: {
+    width: '75%',
+    alignSelf: 'center',
+  },
   img: {
     width: 150,
-    height: 150,
-    resizeMode: 'contain',
+    height: 100,
+    // resizeMode: 'contain',
     alignSelf: 'center',
     justifyContent: 'center',
     marginTop: 20,
   },
   title: {
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 40,
     textTransform: 'uppercase',
     fontWeight: 'bold',
     color: Themes.AppTheme.button,
+    paddingTop: 20,
   },
   subtitle: {
     textAlign: 'center',

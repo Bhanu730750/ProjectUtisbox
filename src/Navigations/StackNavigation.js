@@ -4,17 +4,13 @@ import {NAVIGATION_NAME} from '../Appdata/NavigationName';
 import Welcome from '../Screens/Welcome';
 import Login from '../Screens/Login';
 import Register from '../Screens/Register';
-import Menu from '../Screens/Menu';
 import OTP from '../Screens/Otp';
-import Report from '../Screens/Report';
-import PaperTrading from '../Screens/PaperTrading';
-import CoinDetails from '../Screens/CoinDetails';
-import Coin from '../Screens/Coin';
 import ForgotPassword from '../Screens/ForgotPassword';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ResetPassword from '../Screens/ResetPassword';
 import {USERDATA} from '../Utility/AsyncStorage';
 import {useNavigation} from '@react-navigation/native';
+import Dashboard from '../Screens/Dashboard';
 
 export default function StackNavigation() {
   const nav = useNavigation();
@@ -38,11 +34,7 @@ export default function StackNavigation() {
           component={Login}
           options={{headerShown: false}}
         />
-        <Screen
-          name={NAVIGATION_NAME.REGISTER}
-          component={Register}
-          options={{headerShown: false}}
-        />
+
         <Screen
           name={NAVIGATION_NAME.OTP}
           component={OTP}
@@ -53,9 +45,10 @@ export default function StackNavigation() {
           component={ForgotPassword}
           options={{headerShown: false}}
         />
+
         <Screen
-          name={NAVIGATION_NAME.RESETPASSWORD}
-          component={ResetPassword}
+          name={NAVIGATION_NAME.DASHBOARD}
+          component={Dashboard}
           options={{headerShown: false}}
         />
       </Navigator>
