@@ -47,15 +47,15 @@ export const reportList = [
 
 export const BottomNavTxt = [
   {
-    name: 'Watchlist',
+    name: 'Managment',
     img: require('../Assets/Images/star.png'),
   },
   {
-    name: 'Chart',
+    name: 'Result',
     img: require('../Assets/Images/bar_Chart.png'),
   },
   {
-    name: 'Paper Trading',
+    name: 'Tutorial',
     img: require('../Assets/Images/newspaperTrading.png'),
   },
   {

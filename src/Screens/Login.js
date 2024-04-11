@@ -62,7 +62,7 @@ export default function Login({navigation}) {
             maxHeight={300}
             labelField="label"
             valueField="value"
-            placeholder={!isFocus ? 'Select' : '...'}
+            placeholder={!isFocus ? 'Select an option' : '...'}
             searchPlaceholder="Search..."
             value={value}
             onFocus={() => setIsFocus(true)}
@@ -117,7 +117,7 @@ export default function Login({navigation}) {
           title={'SIGN IN'}
           style={styles.signUpButton}
           textstyle={styles.txtstyle}
-          // onPress={() => navigation.navigate(NAVIGATION_NAME.REGISTER)}
+          onPress={() => navigation.navigate(NAVIGATION_NAME.DASHBOARD)}
         />
 
         {/* <TouchableOpacity
@@ -135,7 +135,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   dropdown: {
+    borderWidth: 1,
+    borderColor: 'grey',
     width: '75%',
+    paddingHorizontal: '2%',
+    borderRadius: 5,
     alignSelf: 'center',
   },
   img: {
