@@ -1,20 +1,51 @@
-export const Orange = '#EA582C';
-export const Black = '#000000';
-export const lightRed = '#EA582C';
-export const white = '#ffffff';
-export const Blue = 'blue';
-export const darkBlue = '#010008';
-export const lightOrange = '#FD7942';
-export const Gray = 'gray';
-export const lightGray = '#bbbbbd';
-export const pink = '#581845';
-export const whitess = '#fff';
-export const darkGray = '#636361';
-export const greenish = '#5E6418';
-export const yellow = '#E4F117';
-export const lightGreen = '#50C802';
-export const grayShadow = '#F5F5F5';
-export const parentBackGroundColor = '#f2f1f4';
-export const creamColorCode = '#FFFDD0';
-export const greenColor = '#008000';
-export const Megenta = '#661caf';
+export const colors = {
+    WHITE: '#ffffff',
+    BLACK: '#000000',
+    PRIMARY_LIGHT: '#5DA4C5',
+    BLUE: '#032677',
+    BLUE_DARK: '#191E65',
+    NAVY_BLUE: '#00073D',
+    SKY_BLUE: '#00a4ff',
+    GRAY: '#d8d8d8',
+    GRAY_CHARCOAL: '#393A3A',
+    GRAY_STATE: '#B8C2CC',
+    GRAY_LIGHT: '#F3F3F3',
+    GRAY_STEEL: '#636E72',
+    GRAY_SILVER: '#E5E7EB',
+    SILVER: '#c4c4c4',
+    GREEN: '#15B157',
+    GREEN_DARK: '#43721D',
+    ORANGE: '#ff9f00',
+    RED: '#ff0800',
+    LIGHT_GREEN: '#5FA329',
+    GRAY_31: '#4F4F4F',
+    RED_MEDIUM: '#EF3D14',
+    RED_LIGHT: '#FBBFB2',
+    RED_DARK: '#99270D',
+    INDICATOR: '#3C3C434D',
+    AQUA: '#F0F5FA',
+    AQUA_DARK: '#2B5F77',
+    BRAND_CREAM: '#FCF5E8',
+    ICON_DARK: '#111A57',
+    GREEN_ULTRA: '#E0F9C0',
+    ORANGE_ULTRA_LIGHT: '#FCE8DE',
+    TRANSPARENT: 'transparent',
+    Orange: '#EA582C',
+    lightRed: '#EA582C',
+    darkBlue: '#010008',
+    lightOrange: '#FD7942',
+    Gray: 'gray',
+    lightGray: '#bbbbbd',
+    pink: '#581845',
+    whitess: '#fff',
+    darkGray: '#636361',
+    greenish: '#5E6418',
+    yellow: '#E4F117',
+    lightGreen: '#50C802',
+    grayShadow: '#F5F5F5',
+    parentBackGroundColor: '#f2f1f4',
+    creamColorCode: '#FFFDD0',
+    greenColor: '#008000',
+    Megenta: '#661caf',
+    PRIMARY: '#272c64',
+};

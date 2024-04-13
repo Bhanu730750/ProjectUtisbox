@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ImageBackground,
@@ -9,39 +9,53 @@ import {
   TouchableOpacity,
   ToastAndroid,
 } from 'react-native';
-import {Themes} from '../Appdata/colors';
-import {SignUpButton} from '../Componets/Button';
-import {NAVIGATION_NAME} from '../Appdata/NavigationName';
-import {forgetPassRequest, loginRequest} from '../Redux/actions';
-import {useDispatch, useSelector} from 'react-redux';
+import { Themes } from '../Appdata/colors';
+import { SignUpButton } from '../Componets/Button';
+import { NAVIGATION_NAME } from '../Appdata/NavigationName';
+import { forgetPassRequest, loginRequest } from '../Redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../Componets/Loader';
-export default function ForgotPassword({navigation}) {
+import { fonts } from '../Utility/fonts';
+import { colors } from '../Utility/Color';
+import InputField from '../Componets/InputField/TextField';
+import CustomButton from '../Componets/CustomButton/Button';
+export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState('');
   return (
     <>
       <ImageBackground
         source={require('../Assets/Images/bgimg.jpg')}
         style={styles.container}>
-        <Text style={styles.img}></Text>
-        <Text style={styles.title}>Forgot Password</Text>
-        <Text style={styles.subtitle}>Happy to see you again!</Text>
+        <View style={{ marginBottom: 50 }}>
+          <Text style={styles.title}>Reset Password</Text>
+          <Text style={styles.subtitle}>We will send you a link to reset your password. Enter your email address</Text>
+        </View>
         <View style={styles.formView}>
           <View style={styles.formSubView}>
-            <Text style={styles.label}>Email:</Text>
-            <TextInput
-              onChangeText={e => setEmail(e)}
-              style={styles.myInput}
-              placeholder="username@gmail.com"
-              placeholderTextColor={Themes.AppTheme.black}
+            <Text style={{ color: colors.NAVY_BLUE, ...fonts.ManropeBold(18), }}>
+              Email
+            </Text>
+            <InputField
+              inputStyle={{ color: colors.GRAY_CHARCOAL, ...fonts.ManropeSemiBold(15) }}
+              containerStyle={{ backgroundColor: colors.TRANSPARENT, borderWidth: 1, borderColor: colors.GRAY_STATE, }}
             />
           </View>
         </View>
-        <SignUpButton
-          title={'SUBMIT'}
-          style={styles.signUpButton}
-          textstyle={styles.txtstyle}
-          onPress={() => navigation.navigate(NAVIGATION_NAME.OTP)}
-        />
+        <View style={styles.ButtonView}>
+          <CustomButton
+            title={'Submit'}
+            onPress={() => { }}
+            customWidth
+            textStyle={styles.buttonTextStyle}
+            buttonStyle={styles.buttonViewStyle}
+          />
+        </View>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ color: colors.PRIMARY, ...fonts.ManropeBold(18) }}>Password reset link sent.</Text>
+          <Text onPress={() => navigation.goBack()} style={{ color: colors.PRIMARY_LIGHT, ...fonts.ManropeBold(18) }}>Click here to login.</Text>
+
+        </View>
+
       </ImageBackground>
     </>
   );
@@ -49,6 +63,7 @@ export default function ForgotPassword({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 20,
   },
   img: {
     width: 150,
@@ -60,21 +75,18 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontSize: 30,
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
+    ...fonts.ManropeBold(35),
     color: Themes.AppTheme.button,
+    paddingTop: 20,
   },
   subtitle: {
     textAlign: 'center',
-    fontSize: 15,
-    fontWeight: '600',
-    color: Themes.AppTheme.black,
+    ...fonts.ManropeMedium(15),
+    color: colors.GRAY_STEEL,
   },
   formView: {
     alignSelf: 'center',
-    width: '70%',
-    marginTop: 20,
+    marginTop: 0,
   },
   label: {
     color: '#000',
@@ -116,6 +128,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     marginTop: 10,
+  },
+  buttonTextStyle: { ...fonts.ManropeSemiBold(18), color: colors.WHITE },
+  buttonViewStyle: { backgroundColor: colors.PRIMARY, padding: 10, width: '100%' },
+  ButtonView: {
+    marginVertical: 10,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 

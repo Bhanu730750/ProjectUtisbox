@@ -1,131 +1,129 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ImageBackground,
-  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  ToastAndroid,
+  ScrollView,
 } from 'react-native';
-import {Themes} from '../Appdata/colors';
-import {SignUpButton} from '../Componets/Button';
-import {NAVIGATION_NAME} from '../Appdata/NavigationName';
+import { Themes } from '../Appdata/colors';
+import { SignUpButton } from '../Componets/Button';
+import { NAVIGATION_NAME } from '../Appdata/NavigationName';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {Dropdown} from 'react-native-element-dropdown';
+import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-export default function Login({navigation}) {
+import { fonts } from '../Utility/fonts';
+import { colors } from '../Utility/Color';
+import InputField from '../Componets/InputField/TextField'
+import CustomButton from '../Componets/CustomButton/Button';
+
+export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const data = [
-    {label: 'Chetu@.com', value: 'Chetu@.com'},
-    {label: 'Dva@.com', value: 'Dva@.com'},
-    {label: 'MPS@.com', value: 'MPS@.com'},
-    {label: 'DPS@.com', value: 'DPS@.com'},
-    {label: 'Amity@.com', value: 'Amity@.com'},
-    {label: 'IIT Kanpur@.com	', value: 'IIT Kanpur@.com'},
+    { label: 'Chetu@.com', value: 'Chetu@.com' },
+    { label: 'Dva@.com', value: 'Dva@.com' },
+    { label: 'MPS@.com', value: 'MPS@.com' },
+    { label: 'DPS@.com', value: 'DPS@.com' },
+    { label: 'Amity@.com', value: 'Amity@.com' },
+    { label: 'IIT Kanpur@.com	', value: 'IIT Kanpur@.com' },
   ];
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
-
-  const renderLabel = () => {
-    if (value || isFocus) {
-      return (
-        <Text style={[styles.label, isFocus && {color: 'blue'}]}>
-          Select Institute
-        </Text>
-      );
-    }
-    return null;
-  };
 
   return (
     <>
       <ImageBackground
         source={require('../Assets/Images/bgimg.jpg')}
         style={styles.container}>
-        <Text style={styles.title}>Utisbox</Text>
-        <Text style={styles.subtitle}>Happy to see you again!</Text>
-        <Text style={styles.img}></Text>
-        <View style={styles.dropdown}>
-          {renderLabel()}
-          <Dropdown
-            style={[isFocus && {borderColor: 'blue'}]}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            inputSearchStyle={styles.inputSearchStyle}
-            iconStyle={styles.iconStyle}
-            data={data}
-            search
-            maxHeight={300}
-            labelField="label"
-            valueField="value"
-            placeholder={!isFocus ? 'Select an option' : '...'}
-            searchPlaceholder="Search..."
-            value={value}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={item => {
-              setValue(item.value);
-              setIsFocus(false);
-            }}
-          />
-        </View>
-        <View style={styles.formView}>
-          <View style={styles.formSubView}>
-            <Text style={styles.label}>Email:</Text>
-            <TextInput
-              onChangeText={e => setEmail(e)}
-              style={styles.myInput}
-              placeholder="username@gmail.com"
-              placeholderTextColor={Themes.AppTheme.black}
+        <ScrollView showsVerticalScrollIndicator={false}>
+
+          <View style={{ marginBottom: 80 }}>
+            <Text style={styles.title}>UtiCubeBox</Text>
+            <Text style={styles.subtitle}>Happy to see you again!</Text>
+          </View>
+          <Text style={{ color: colors.NAVY_BLUE, ...fonts.ManropeBold(18), marginBottom: 10 }}>
+            Select Institute
+          </Text>
+          <View style={styles.dropdown}>
+
+            <Dropdown
+              style={{ padding: 10, borderColor: colors.GRAY_STATE }}
+              containerStyle={{ borderRadius: 5 }}
+              placeholderStyle={{ color: colors.GRAY_CHARCOAL, ...fonts.ManropeBold(15) }}
+              itemTextStyle={{ ...fonts.ManropeRegular(15), color: colors.GRAY_CHARCOAL }}
+              selectedTextStyle={{ ...fonts.ManropeBold(15), color: colors.BLUE_DARK }}
+              inputSearchStyle={{ ...fonts.ManropeMedium(15), color: colors.BLUE_DARK, borderRadius: 10 }}
+              iconStyle={styles.iconStyle}
+              data={data}
+              search
+              maxHeight={300}
+              labelField="label"
+              valueField="value"
+              placeholder={!isFocus ? 'Select an option' : '...'}
+              searchPlaceholder="Search..."
+              value={value}
+              onFocus={() => setIsFocus(true)}
+              onBlur={() => setIsFocus(false)}
+              onChange={item => {
+                setValue(item.value);
+                setIsFocus(false);
+              }}
             />
           </View>
-          <View style={styles.formSubView}>
-            <Text style={styles.label}>Password:</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                width: '100%',
-              }}>
-              <TextInput
-                secureTextEntry={!showPassword}
-                onChangeText={e => setPassword(e)}
-                style={{...styles.myInput, width: '100%'}}
-                placeholder="**********"
-                placeholderTextColor={Themes.AppTheme.black}
+          <View style={styles.formView}>
+            <View style={styles.formSubView}>
+              <Text style={{ color: colors.NAVY_BLUE, ...fonts.ManropeBold(18), }}>
+                Email
+              </Text>
+              <InputField
+                inputStyle={{ color: colors.GRAY_CHARCOAL, ...fonts.ManropeSemiBold(15) }}
+                containerStyle={{ backgroundColor: colors.TRANSPARENT, borderWidth: 1, borderColor: colors.GRAY_STATE, }}
               />
-              <TouchableOpacity
-                style={styles.eyeiconButton}
-                onPress={() => setShowPassword(!showPassword)}>
-                <Entypo
-                  name={showPassword ? 'eye' : 'eye-with-line'}
-                  style={styles.eyeIcon}
+            </View>
+            <View style={styles.formSubView}>
+              <Text style={{ color: colors.NAVY_BLUE, ...fonts.ManropeBold(18) }}>
+                Password
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  width: '100%',
+                }}>
+                <InputField
+                  secureTextEntry={!showPassword}
+                  inputStyle={{ color: colors.GRAY_CHARCOAL, ...fonts.ManropeSemiBold(15) }}
+                  containerStyle={{ backgroundColor: colors.TRANSPARENT, borderWidth: 1, borderColor: colors.GRAY_STATE, }}
                 />
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.eyeiconButton}
+                  onPress={() => setShowPassword(!showPassword)}>
+                  <Entypo
+                    name={showPassword ? 'eye' : 'eye-with-line'}
+                    style={styles.eyeIcon}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(NAVIGATION_NAME.FORGOTPASSWORD)}>
-          <Text style={styles.alreayTxt}>Forget password ?</Text>
-        </TouchableOpacity>
-        <SignUpButton
-          title={'SIGN IN'}
-          style={styles.signUpButton}
-          textstyle={styles.txtstyle}
-          onPress={() => navigation.navigate(NAVIGATION_NAME.DASHBOARD)}
-        />
-
-        {/* <TouchableOpacity
-          onPress={() => navigation.navigate(NAVIGATION_NAME.REGISTER)}>
-          <Text style={styles.alreayTxt}>
-            Don't have an account? Sign up here
-          </Text>
-        </TouchableOpacity> */}
+          <TouchableOpacity
+            onPress={() => navigation.navigate(NAVIGATION_NAME.FORGOTPASSWORD)}>
+            <Text style={styles.alreayTxt}>Forgot password ?</Text>
+          </TouchableOpacity>
+          <View style={styles.ButtonView}>
+            <CustomButton
+              title={'Login'}
+              onPress={() => navigation.navigate(NAVIGATION_NAME.DASHBOARD)}
+              customWidth
+              textStyle={styles.buttonTextStyle}
+              buttonStyle={styles.buttonViewStyle}
+            />
+          </View>
+        </ScrollView>
       </ImageBackground>
     </>
   );
@@ -133,40 +131,37 @@ export default function Login({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 20,
   },
   dropdown: {
     borderWidth: 1,
-    borderColor: 'grey',
-    width: '75%',
+    borderColor: colors.GRAY_STATE,
+    width: '100%',
     paddingHorizontal: '2%',
-    borderRadius: 5,
-    alignSelf: 'center',
+    borderRadius: 8,
+    // alignSelf: 'center',
   },
   img: {
     width: 150,
     height: 100,
-    // resizeMode: 'contain',
     alignSelf: 'center',
     justifyContent: 'center',
     marginTop: 20,
   },
   title: {
     textAlign: 'center',
-    fontSize: 40,
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
+    ...fonts.ManropeBold(35),
     color: Themes.AppTheme.button,
     paddingTop: 20,
   },
   subtitle: {
     textAlign: 'center',
-    fontSize: 15,
-    fontWeight: '600',
+    ...fonts.ManropeSemiBold(15),
     color: Themes.AppTheme.black,
   },
   formView: {
     alignSelf: 'center',
-    width: '70%',
+    // width: '100%',
     marginTop: 20,
   },
   label: {
@@ -205,10 +200,10 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   alreayTxt: {
-    color: 'grey',
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 10,
+    textAlign: 'right',
+    color: colors.PRIMARY,
+    ...fonts.ManropeBold(18),
+    // marginTop: 10,
   },
   eyeIcon: {
     color: Themes.AppTheme.black,
@@ -217,6 +212,14 @@ const styles = StyleSheet.create({
   eyeiconButton: {
     position: 'absolute',
     right: 10,
+  },
+  buttonTextStyle: { ...fonts.ManropeSemiBold(18), color: colors.WHITE },
+  buttonViewStyle: { backgroundColor: colors.PRIMARY, padding: 10, width: '100%' },
+  ButtonView: {
+    marginVertical: 60,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 

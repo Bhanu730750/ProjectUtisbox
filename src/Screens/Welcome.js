@@ -1,38 +1,29 @@
-import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
 import React from 'react';
-import {Button} from '../Componets/Button';
-import {Themes} from '../Appdata/colors';
-import {NAVIGATION_NAME} from '../Appdata/NavigationName';
-export default function Welcome({navigation}) {
+// import { Button } from '../Componets/Button';
+import { Themes } from '../Appdata/colors';
+import { NAVIGATION_NAME } from '../Appdata/NavigationName';
+import CustomButton from '../Componets/CustomButton/Button';
+import { fonts } from '../Utility/fonts';
+import { colors } from '../Utility/Color';
+
+export default function Welcome({ navigation }) {
   return (
-    <>
-      <ImageBackground
-        source={require('../Assets/Images/bgimg.jpg')}
-        style={styles.container}>
-        <Text style={styles.title}>Welcome</Text>
-        <Text style={styles.title}>Utisbox</Text>
-        {/* <Image
-          source={require('../Assets/Images/logo.png')}
-          style={styles.img}
-        /> */}
-      </ImageBackground>
+    <ImageBackground
+      source={require('../Assets/Images/bgimg.jpg')}
+      style={styles.container}>
+      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>UtiCubeBox</Text>
       <View style={styles.ButtonView}>
-        <Button
-          title={'SIGN IN'}
-          disabled={false}
-          style={styles.buttonstyle}
-          textstyle={styles.txtstyle}
+        <CustomButton
+          title={'Login'}
           onPress={() => navigation.navigate(NAVIGATION_NAME.LOGIN)}
+          customWidth
+          textStyle={styles.buttonTextStyle}
+          buttonStyle={styles.buttonViewStyle}
         />
-        {/* <Button
-          onPress={() => navigation.navigate(NAVIGATION_NAME.REGISTER)}
-          title={'NEW ACCOUNT'}
-          disabled={false}
-          style={styles.buttonstyle}
-          textstyle={styles.txtstyle}
-        /> */}
       </View>
-    </>
+    </ImageBackground>
   );
 }
 
@@ -54,9 +45,11 @@ const styles = StyleSheet.create({
     color: Themes.AppTheme.textColor,
   },
   ButtonView: {
-    // flex: 9,
-    // backgroundColor: 'red',
-    justifyContent: 'flex-end',
+    position: 'absolute',
+    width: '100%',
+    bottom: 15,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   img: {
     width: 200,
@@ -67,9 +60,9 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontSize: 35,
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
+    ...fonts.ManropeBold(35),
     color: Themes.AppTheme.button,
   },
+  buttonTextStyle: { ...fonts.ManropeSemiBold(18), color: colors.WHITE },
+  buttonViewStyle: { backgroundColor: colors.PRIMARY, padding: 10, width: '90%' },
 });
