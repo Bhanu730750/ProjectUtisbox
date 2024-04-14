@@ -11,7 +11,7 @@ import {
 import { Themes } from '../Appdata/colors';
 import { SignUpButton } from '../Componets/Button';
 import { NAVIGATION_NAME } from '../Appdata/NavigationName';
-import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { fonts } from '../Utility/fonts';
@@ -63,7 +63,7 @@ export default function Login({ navigation }) {
               maxHeight={300}
               labelField="label"
               valueField="value"
-              placeholder={!isFocus ? 'Select an option' : '...'}
+              placeholder={!isFocus ? 'Select an option' : ''}
               searchPlaceholder="Search..."
               value={value}
               onFocus={() => setIsFocus(true)}
@@ -102,8 +102,8 @@ export default function Login({ navigation }) {
                 <TouchableOpacity
                   style={styles.eyeiconButton}
                   onPress={() => setShowPassword(!showPassword)}>
-                  <Entypo
-                    name={showPassword ? 'eye' : 'eye-with-line'}
+                  <FontAwesomeIcon
+                    name={showPassword ? 'eye' : 'eye-slash'}
                     style={styles.eyeIcon}
                   />
                 </TouchableOpacity>
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   },
   eyeIcon: {
     color: Themes.AppTheme.black,
-    fontSize: 18,
+    fontSize: 20,
   },
   eyeiconButton: {
     position: 'absolute',

@@ -7,3 +7,7 @@ export const horizontalScale = (size: number) => (width / guidelineBaseWidth) * 
 export const verticalScale = (size: number) => (height / guidelineBaseHeight) * size;
 export const moderateScale = (size: number, factor = 0.5) =>
     size + (horizontalScale(size) - size) * factor;
+
+export const screenHeight = (percentage: number) => {
+    return (percentage / 100) * height;
+};

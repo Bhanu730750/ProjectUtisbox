@@ -48,4 +48,5 @@ export const colors = {
     greenColor: '#008000',
     Megenta: '#661caf',
     PRIMARY: '#272c64',
+    LIGHT_PRIMARY_DARK: '#3c4173',
 };

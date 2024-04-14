@@ -6,4 +6,10 @@ export const NAVIGATION_NAME = {
   FORGOTPASSWORD: 'ForgotPassword',
   RESETPASSWORD: 'ResetPassword',
   DASHBOARD: 'DASHBOARD',
+  MANAGEMENT: 'Managment',
+  RESULT: 'Result',
+  TUTORIAL: 'Tutorial',
+  REPORTS: 'Reports',
+  MENU: 'Menu',
+
 };
