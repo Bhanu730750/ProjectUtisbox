@@ -12,6 +12,8 @@ import TutorialIcon from '../Assets/svg/TutorialIcon';
 import { fonts } from '../Utility/fonts';
 import ReportActiveIcon from '../Assets/svg/ReportActiveIcon';
 import MenuActiveIcon from '../Assets/svg/MenuActiveIcon';
+import Subject from '../Screens/subject/Subject';
+import Menu from '../Screens/menu/Menu';
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = (props) => {
@@ -173,7 +175,7 @@ const TabNavigator = (props) => {
             />
             <Tab.Screen
                 name={NAVIGATION_NAME.MENU}
-                component={Dashboard}
+                component={Menu}
                 // listeners={{
                 //     tabPress: (e) => {
                 //         // Prevent default action

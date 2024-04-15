@@ -193,20 +193,46 @@ const styles = StyleSheet.create({
   },
 });
 
-// import {View} from 'native-base';
-// import React, {useState} from 'react';
-// import {Text, Button} from 'react-native';
-// const App = () => {
-//   let data = 100;
-//   const fruit = val => {
-//     data = 20;
-//     console.warn(data);
-//   };
-//   return (
-//     <View>
-//       <Text style={{fontSize: 20}}>{data} </Text>
-//       <Button title="On Press" onPress={() => fruit('Hello')} color={'green'} />
-//     </View>
-//   );
-// };
-// export default App;
+/* Add Subject
+   Math, science,
+   Below Subject list
+*/
+
+/* Add Class
+   Class name enter
+   Add Division
+    A,B,C,D,E
+   Below Class list
+*/
+
+/* Add Faculty
+image
+name
+emailid
+mobile
+gender
+---------
+select subject
+   select Math
+select Class
+   multi select
+   8 class
+   9 class
+   10 class
+*/
+
+/* Add Student
+  image
+  name
+  mobile
+  email id
+  gender
+  roll no
+  -------------
+  select Class
+    select 8th
+  Select Division
+    section A
+    Section B
+*/
+
