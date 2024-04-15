@@ -2,7 +2,7 @@
 'use strict';
 import * as AsyncStorage from './AsyncStorage';
 
-// import RNFetchBlob from 'rn-fetch-blob';
+// import RNFetchBlob from 'rn-fetch-blob'; test
 
 export async function callApi(methodType, apiUrl, requestBody, isDelete) {
   console.log('check api', methodType, apiUrl, requestBody);
